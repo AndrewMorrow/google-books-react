@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const BookSchema = mongoose.Schema({
     title: {
         type: mongoose.Schema.Types.String,
+        required: true,
     },
     authors: {
         type: mongoose.Schema.Types.Array,
