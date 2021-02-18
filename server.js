@@ -12,7 +12,7 @@ app.use(express.json({ extended: false }));
 connectDB();
 
 // Define routes
-// app.use("/api/books", require("./routes/books"));
+app.use("/api/books", require("./routes/books"));
 
 // Server static assets in production
 if (process.env.NODE_ENV === "production") {

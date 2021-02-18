@@ -31,10 +31,10 @@ const Navbar = () => {
                 <Typography variant="h6">
                     <Link to="/search" style={{ marginRight: "1rem" }}>
                         Search Books
-                    </Link>{" "}
+                    </Link>
                 </Typography>
                 <Typography variant="h6">
-                    <Link to="/saved">Saved Books</Link>{" "}
+                    <Link to="/saved">Saved Books</Link>
                 </Typography>
             </Toolbar>
         </AppBar>

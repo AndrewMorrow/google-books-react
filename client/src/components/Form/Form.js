@@ -4,7 +4,10 @@ import { SearchIcon } from "@material-ui/icons/Search";
 
 const Form = (props) => {
     return (
-        <form onSubmit={props.handleFormSubmit}>
+        <form
+            onSubmit={props.handleFormSubmit}
+            style={{ marginBottom: "3rem" }}
+        >
             <Grid container justify="center">
                 <Grid item>
                     <TextField

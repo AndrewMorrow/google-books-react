@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import Form from "../Form/Form";
+import CardContainer from "../CardContainer/CardContainer";
 
 const SearchPage = () => {
     const [query, setQuery] = useState("");
@@ -8,16 +9,25 @@ const SearchPage = () => {
 
     const handleInputChange = (e) => {
         setQuery(e.target.value);
+        console.log(query);
     };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        console.log("onSubmit");
         const res = await API.getBooks(query);
         const data = await res.json();
-
         setBooks(data.items);
-        console.log(books);
+    };
+
+    const handleSaveBook = () => {
+        const bookData = {
+            title: "title",
+            thumbnail: "thumbnail",
+            description: "description",
+            authors: ["author1", "author2"],
+        };
+        API.saveBook(bookData);
+        console.log("HandleSave");
     };
 
     return (
@@ -27,6 +37,17 @@ const SearchPage = () => {
                 handleInputChange={handleInputChange}
                 query={query}
             />
+            {books && books.length > 0 ? (
+                books.map((book) => (
+                    <CardContainer
+                        key={book.id}
+                        book={book}
+                        handleSaveBook={handleSaveBook}
+                    />
+                ))
+            ) : (
+                <h1>No books to show</h1>
+            )}
         </div>
     );
 };
