@@ -78,7 +78,7 @@ const CardContainer = (props) => {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                onClick={props.handleSaveBook}
+                                onClick={() => props.handleSaveBook(props.book)}
                             >
                                 Save
                             </Button>

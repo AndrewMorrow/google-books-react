@@ -19,12 +19,14 @@ const SearchPage = () => {
         setBooks(data.items);
     };
 
-    const handleSaveBook = () => {
+    const handleSaveBook = (book) => {
+        console.log(book.volumeInfo);
         const bookData = {
-            title: "title",
-            thumbnail: "thumbnail",
-            description: "description",
-            authors: ["author1", "author2"],
+            id: book.id,
+            title: book.volumeInfo.title,
+            thumbnail: book.volumeInfo.imageLinks.thumbnail,
+            description: book.volumeInfo.description,
+            authors: book.volumeInfo.authors,
         };
         API.saveBook(bookData);
         console.log("HandleSave");
