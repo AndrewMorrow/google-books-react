@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import API from "../../utils/API";
 import Form from "../Form/Form";
 import CardContainer from "../CardContainer/CardContainer";
+import "./bookDisplay.css";
 
 const SearchPage = () => {
     const [query, setQuery] = useState("");
@@ -20,16 +21,14 @@ const SearchPage = () => {
     };
 
     const handleSaveBook = (book) => {
-        console.log(book.volumeInfo);
         const bookData = {
-            id: book.id,
             title: book.volumeInfo.title,
-            thumbnail: book.volumeInfo.imageLinks.thumbnail,
+            image: book.volumeInfo.imageLinks.thumbnail,
             description: book.volumeInfo.description,
             authors: book.volumeInfo.authors,
+            link: book.volumeInfo.canonicalVolumeLink,
         };
         API.saveBook(bookData);
-        console.log("HandleSave");
     };
 
     return (
@@ -48,7 +47,7 @@ const SearchPage = () => {
                     />
                 ))
             ) : (
-                <h1>No books to show</h1>
+                <h1 className="noBooks">No books to show</h1>
             )}
         </div>
     );

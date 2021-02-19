@@ -11,4 +11,12 @@ export default {
             },
         });
     },
+    getSavedBooks: () => {
+        return fetch(`api/books`);
+    },
+    deleteBook: (id) => {
+        fetch(`api/books/${id}`, {
+            method: "DELETE",
+        });
+    },
 };
