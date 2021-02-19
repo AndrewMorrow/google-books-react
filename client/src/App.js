@@ -12,11 +12,7 @@ function App() {
                 <div className="App">
                     <Navbar />
                     <Switch>
-                        <Route
-                            exact
-                            path={["/", "/search"]}
-                            component={SearchPage}
-                        />
+                        <Route exact path="/" component={SearchPage} />
                         <Route path="/saved" component={SavedPage} />
                     </Switch>
                 </div>

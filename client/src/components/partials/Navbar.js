@@ -29,7 +29,7 @@ const Navbar = () => {
                     Google Books
                 </Typography>
                 <Typography variant="h6">
-                    <Link to="/search" style={{ marginRight: "1rem" }}>
+                    <Link to="/" style={{ marginRight: "1rem" }}>
                         Search Books
                     </Link>
                 </Typography>
