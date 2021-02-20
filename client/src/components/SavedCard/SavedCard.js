@@ -52,19 +52,19 @@ const SavedCard = (props) => {
                     <Grid container item xs={3}>
                         <CardContent>
                             <Typography variant="h5">
-                                {props.book.title}
+                                {props.book.title && props.book.title}
                             </Typography>
                             <Typography
                                 variant="subtitle1"
                                 className={classes.typographyStyle}
                             >
-                                {props.book.authors.length > 1
+                                {props.book.authors?.length > 1
                                     ? "Authors: "
                                     : "Author: "}
-                                {props.book.authors.join(", ")}
+                                {props.book.authors?.join(", ")}
                             </Typography>
                             <Button
-                                href={props.book.link}
+                                href={props.book.link && props.book.link}
                                 target="_blank"
                                 style={{ marginRight: "8px" }}
                                 variant="contained"
@@ -86,7 +86,7 @@ const SavedCard = (props) => {
 
                     <Grid container item xs={7}>
                         <Typography variant="body2">
-                            {props.book.description}
+                            {props.book.description && props.book.description}
                         </Typography>
                     </Grid>
                 </Grid>

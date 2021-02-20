@@ -55,19 +55,23 @@ const CardContainer = (props) => {
                     <Grid container item xs={3}>
                         <CardContent>
                             <Typography variant="h5">
-                                {props.book.volumeInfo.title}
+                                {props.book.volumeInfo.title &&
+                                    props.book.volumeInfo.title}
                             </Typography>
                             <Typography
                                 variant="subtitle1"
                                 className={classes.typographyStyle}
                             >
-                                {props.book.volumeInfo.authors.length > 1
+                                {props.book.volumeInfo.authors?.length > 1
                                     ? "Authors: "
                                     : "Author: "}
-                                {props.book.volumeInfo.authors.join(", ")}
+                                {props.book.volumeInfo.authors?.join(", ")}
                             </Typography>
                             <Button
-                                href={props.book.volumeInfo.canonicalVolumeLink}
+                                href={
+                                    props.book.volumeInfo.canonicalVolumeLink &&
+                                    props.book.volumeInfo.canonicalVolumeLink
+                                }
                                 target="_blank"
                                 style={{ marginRight: "8px" }}
                                 variant="contained"
@@ -87,7 +91,8 @@ const CardContainer = (props) => {
 
                     <Grid container item xs={7}>
                         <Typography variant="body2">
-                            {props.book.volumeInfo.description}
+                            {props.book.volumeInfo.description &&
+                                props.book.volumeInfo.description}
                         </Typography>
                     </Grid>
                 </Grid>
